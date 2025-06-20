@@ -31,15 +31,15 @@
 
 /* QWERTY
  * -------------------------------------------------------------------------------------------------------------------------------------
- * | ESC  |   Q |   W |   E |   R    |   T    |--------------------------------------------|   Y     |   U    |   I    |   O    |   P     | `      |
- * | TAB  |   A |   S |   D |   F    |   G    |--------------------------------------------|   H     |   J    |   K    |   L    |   ;     | SK RALT   |
- * | CTRL |   Z |   X |   C |   V    |   B    |  CAPS    |-----------------------|  F11    |   N     |   M    |   ,    |   .    |   /     |   '    |
+ * | ESC  |   Q |   W |   E |   R    |   T    |--------------------------------------------|   Y     |   U    |   I    |   O    |   P     | `       |
+ * | TAB  |   A |   S |   D |   F    |   G    |--------------------------------------------|   H     |   J    |   K    |   L    |   ;     | '       |
+ * | CTRL |   Z |   X |   C |   V    |   B    |  CAPS    |-----------------------|  F11    |   N     |   M    |   ,    |   .    |   /     | SK RALT |
  *                          |  GUI   |  SHIFT | ALT/OPT  |  Nav   |---|  Sym     | SPACE   |  ENTER  |  <--   |
  */
                         bindings = <
 &kp ESC   &kp Q &kp W &kp E &kp R    &kp T                                                 &kp Y     &kp U    &kp I     &kp O   &kp P     &kp GRAVE
-&kp TAB   &kp A &kp S &kp D &kp F    &kp G                                                 &kp H     &kp J    &kp K     &kp L   &kp SEMI  &sk RALT
-&kp LCTRL &kp Z &kp X &kp C &kp V    &kp B     &caps_word                        &kp F11   &kp N     &kp M    &kp COMMA &kp DOT &kp SLASH &kp SQT
+&kp TAB   &kp A &kp S &kp D &kp F    &kp G                                                 &kp H     &kp J    &kp K     &kp L   &kp SEMI  &kp SQT
+&kp LCTRL &kp Z &kp X &kp C &kp V    &kp B     &caps_word                        &kp F11   &kp N     &kp M    &kp COMMA &kp DOT &kp SLASH &sk RALT
                             &kp LGUI &kp LSHFT &kp LALT   &mo NAV_L    &mo SYM_L &kp SPACE &kp ENTER &kp BSPC
                         >;
 
@@ -67,16 +67,16 @@
                 nav_layer {
 /* NAV
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |   |   1/!     |  2/@    |  3/#   |  4/$     |  5/%      |-------------------------------------|  6/^    |  7/&        |  8/*      | 9/(     |   0/)    | \       |
- * |   | PG DOWN   | PG UP   | Up     | Shift    | Home      |-------------------------------------|         |  Left       | Down      | Up      | Right    | SK RALT |
- * |   | Shift     | Left    | Down   | Right    |  End      |  F5  |-------------------| MUTE     | Prev    |     Vol-    | Vol+      | Play    | Next     | Ctrl    |
- *                                    |          |           |      |     |---| ADJ_L   |          |         |  DEL        |
+ * |   |   1/!   |  2/@    |  3/#   |  4/$     |  5/%      |-------------------------------------|  6/^    |  7/&        |  8/*      | 9/(     |   0/)    | \       |
+ * |   | PG DOWN | PG UP   | Up     | Shift    | Home      |-------------------------------------|         |  Left       | Down      | Up      | Right    | SK RALT |
+ * |   | Shift   | Left    | Down   | Right    |  End      |  F5  |-------------------| MUTE     | Prev    |     Vol-    | Vol+      | Play    | Next     | Ctrl    |
+ *                                  |          |           |      |     |---| ADJ_L   |          |         |  DEL        |
  */
-                        bindings = <
-&trans &kp EXCL    &kp AT    &kp HASH &kp DOLLAR &kp PERCENT                                       &kp CARET  &kp AMPS     &kp ASTRK    &kp LPAR &kp RPAR   &kp BSLH
-&trans &kp PG_DN &kp PG_UP &kp UP   &kp LSHFT  &kp HOME                                          &none      &kp LEFT     &kp  UP      &kp DOWN &kp RIGHT  &sk RALT
-&trans &kp LSHFT   &kp LEFT  &kp DOWN &kp RIGHT  &kp END     &kp F5                     &kp C_MUTE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_PP &kp C_NEXT &kp RCTRL
-                                      &trans     &trans      &trans &trans    &mo ADJ_L &trans     &trans     &kp DEL
+                      bindings = <
+&trans &kp EXCL  &kp AT    &kp HASH &kp DOLLAR &kp PERCENT                                       &kp CARET  &kp AMPS     &kp ASTRK    &kp LPAR &kp RPAR   &kp BSLH
+&trans &kp PG_DN &kp PG_UP &kp UP   &kp LSHFT  &kp HOME                                          &none      &kp LEFT     &kp  UP      &kp DOWN &kp RIGHT  &kp RCTRL
+&trans &kp LSHFT &kp LEFT  &kp DOWN &kp RIGHT  &kp END     &kp F5                     &kp C_MUTE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_PP &kp C_NEXT &trans
+                                    &trans     &trans      &trans &trans    &mo ADJ_L &trans     &trans     &kp DEL
                         >;
 
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -92,8 +92,8 @@
  */
                         bindings = <
 &kp Copy &kp N1 &kp N2    &kp N3   &kp N9   &kp N0                                        &kp  N6   &kp N7 &kp N8 &kp N9 &kp N0 &kp BSLH
-&none    &kp N4 &kp MINUS &kp PLUS &kp LBKT &kp RBKT                                      &kp EQUAL &none  &none  &none  &none  &sk RALT
-&trans   &kp N5 &kp SLASH &kp N8   &kp LBRC &kp RBRC &sk RALT                     &kp F12 &kp UNDER &none  &none  &none  &none  &kp RCTRL
+&none    &kp N4 &kp MINUS &kp PLUS &kp LBKT &kp RBKT                                      &kp EQUAL &none  &none  &none  &none  &kp RCTRL
+&trans   &kp N5 &kp SLASH &kp N8   &kp LBRC &kp RBRC &sk RALT                     &kp F12 &kp UNDER &none  &none  &none  &none  &trans
                                    &trans   &trans   &trans   &mo ADJ_L    &trans &trans  &trans    &trans
                         >;
 
