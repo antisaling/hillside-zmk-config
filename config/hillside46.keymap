@@ -32,15 +32,15 @@
 /* QWERTY
  * -------------------------------------------------------------------------------------------------------------------------------------
  * | ESC  |   Q |   W |   E |   R    |   T    |--------------------------------------------|   Y     |   U    |   I    |   O    |   P     | `       |
- * | TAB  |   A |   S |   D |   F    |   G    |--------------------------------------------|   H     |   J    |   K    |   L    |   ;     | '       |
+ * | TAB  |   A |   S |   D |   F    |   G    |--------------------------------------------|   H     |   J    |   K    |   L    |   :     | "       |
  * |SKSHFT|   Z |   X |   C |   V    |   B    |  CAPS    |-----------------------|  F11    |   N     |   M    |   ,    |   .    |   /     | SK RALT |
  *                          |ALT/OPT |  CTRL  | GUI      |  Nav   |---|  Sym     | ENTER   |  SPACE  |  <--   |
  */
                         bindings = <
 &kp ESC   &kp Q &kp W &kp E &kp R    &kp T                                                 &kp Y     &kp U    &kp I     &kp O   &kp P     &kp GRAVE
-&kp TAB   &kp A &kp S &kp D &kp F    &kp G                                                 &kp H     &kp J    &kp K     &kp L   &kp SEMI  &kp SQT
-&sk LSHFT &kp Z &kp X &kp C &kp V    &kp B    &caps_word                        &kp F11   &kp N     &kp M    &kp COMMA &kp DOT &kp SLASH &sk RALT
-                            &kp LALT &kp LCTRL &kp LGUI  &mo NAV_L    &mo SYM_L &kp ENTER &kp SPACE &kp BSPC
+&kp TAB   &kp A &kp S &kp D &kp F    &kp G                                                 &kp H     &kp J    &kp K     &kp L   &kp COLON &kp DQT
+&sk LSHFT &kp Z &kp X &kp C &kp V    &kp B     &caps_word                        &kp F11   &kp N     &kp M    &kp COMMA &kp DOT &kp SLASH &sk RALT
+                            &kp LALT &kp LCTRL &kp LGUI  &mo NAV_L     &mo SYM_L &kp ENTER &kp SPACE &kp BSPC
                         >;
 
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -68,8 +68,8 @@
 /* NAV
  * -------------------------------------------------------------------------------------------------------------------------------------
  * |   |   1/!   |  2/@    |  3/#   |  4/$     |  5/%      |-------------------------------------|  6/^    |  7/&        |  8/*      | 9/(     |   0/)    | \       |
- * |   | PG DOWN | PG UP   | Up     | Shift    | Home      |-------------------------------------|         |  Left       | Down      | Up      | Right    | SK RALT |
- * |   | Shift   | Left    | Down   | Right    |  End      |  F5  |-------------------| MUTE     | Prev    |     Vol-    | Vol+      | Play    | Next     | Ctrl    |
+ * |   | PG DOWN | PG UP   | Up     | Shift    | Home      |-------------------------------------|         |  Left       | Down      | Up      | Right    | Ctrl    |
+ * |   | Shift   | Left    | Down   | Right    |  End      |  F5  |-------------------| MUTE     | Prev    |     Vol-    | Vol+      | Play    | Next     | SK RALT |
  *                                  |          |           |      |     |---| ADJ_L   |          |         |  DEL        |
  */
                       bindings = <
@@ -86,14 +86,14 @@
 /* SYM
  * -------------------------------------------------------------------------------------------------------------------------------------
  * | Copy|   1/!  |   2/@ |  3/#   |  9/(   |  0/)   |------------------------------------|  6/^   |  7/&   | 8/* | 9/(  | 0/)  | \       |
- * |     |   4/$  |   -   |   +    |   [    |   ]    |------------------------------------| =      |        |     |      |      | SK RALT |
- * | Ctrl|   5/%  |   /   |  8/*   |   {    |   }    |SkAltGr |-------------------| F12   | _      |        |     |      |      | Ctrl    |
+ * |     |   4/$  |   -   |   +    |   [    |   ]    |------------------------------------|        |        |     | =    | :    | SK RALT |
+ * | Ctrl|   5/%  |   /   |  8/*   |   {    |   }    |SkAltGr |-------------------| F12   |        |        |     | _    |      | Ctrl    |
  *                                 |        |        |        |  ADJ_L |---|      |       |        |        |
  */
                         bindings = <
 &kp Copy &kp N1 &kp N2    &kp N3   &kp N9   &kp N0                                        &kp  N6   &kp N7 &kp N8 &kp N9 &kp N0 &kp BSLH
-&none    &kp N4 &kp MINUS &kp PLUS &kp LBKT &kp RBKT                                      &kp EQUAL &none  &none  &none  &none  &kp RCTRL
-&trans   &kp N5 &kp SLASH &kp N8   &kp LBRC &kp RBRC &sk RALT                     &kp F12 &kp UNDER &none  &none  &none  &none  &trans
+&none    &kp N4 &kp MINUS &kp PLUS &kp LBKT &kp RBKT                                      &none &none  &none  &kp EQUAL  &kp COLON  &kp RCTRL
+&trans   &kp N5 &kp SLASH &kp N8   &kp LBRC &kp RBRC &sk RALT                     &kp F12 &none &none  &none  &kp UNDER  &none  &trans
                                    &trans   &trans   &trans   &mo ADJ_L    &trans &trans  &trans    &trans
                         >;
 
