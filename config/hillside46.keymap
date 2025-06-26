@@ -66,14 +66,14 @@
 /* SYM
  * -------------------------------------------------------------------------------------------------------------------------------------
  * | Copy|   !       |   @     |  #     |   (    |    )   |------------------------------------|   ^      |   &    |  *      | (       | )       | \       |
- * |     |   $       |   -     |   +    |   [    |   ]    |------------------------------------|          |        |         | =       | :       | SK RALT |
+ * |     |   $       |   -     |   +    |   [    |   ]    |------------------------------------|          |        |         | =       | ;       | SK RALT |
  * | Ctrl|   %       |   /     |  *     |   {    |   }    |SK RALT |-------------------| F12   |          |        |         | _       |         | Ctrl    |
  *                                      |        |        |        |  ADJ_L |---|      |       |          |        |
  */
                         bindings = <
 &kp Copy &kp EXCL    &kp AT    &kp HASH &kp LPAR &kp RPAR                                       &kp CARET &kp AMPS &kp ASTRK &kp LPAR  &kp RPAR  &kp BSLH
-&none    &kp DOLLAR  &kp MINUS &kp PLUS &kp LBKT &kp RBKT                                       &none     &none    &none     &kp EQUAL &kp COLON &kp RCTRL
-&trans   &kp PERCENT &kp SLASH &kp N8   &kp LBRC &kp RBRC &sk RALT                      &kp F12 &none     &none    &none     &kp UNDER &none     &trans
+&none    &kp DOLLAR  &kp MINUS &kp PLUS &kp LBKT &kp RBKT                                       &none     &none    &none     &kp EQUAL &kp SEMI &kp RCTRL
+&trans   &kp PERCENT &kp SLASH &kp ASTRK &kp LBRC &kp RBRC &sk RALT                      &kp F12 &none     &none    &none     &kp UNDER &none     &trans
                                         &trans   &trans   &trans   &mo ADJ_L     &trans &trans  &trans    &trans
                         >;
 
