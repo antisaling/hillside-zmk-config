@@ -10,11 +10,10 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define QWERTY_L 0
-#define WORKMAN_L 1
-#define NAV_L    2
-#define SYM_L    3
-#define ADJ_L    4
+#define WORKMAN_L 0
+#define NAV_L    1
+#define SYM_L    2
+#define ADJ_L    3
 
 #define Undo   LC(Z)
 #define Cut    LC(X)
@@ -28,37 +27,18 @@
                 compatible = "zmk,keymap";
 
                 default_layer {
-
-/* QWERTY
- * -------------------------------------------------------------------------------------------------------------------------------------
- * | ESC  |   Q |   W |   E |   R    |   T    |--------------------------------------------|   Y     |   U    |   I    |   O    |   P     | `       |
- * | TAB  |   A |   S |   D |   F    |   G    |--------------------------------------------|   H     |   J    |   K    |   L    |   :     | "       |
- * |SKSHFT|   Z |   X |   C |   V    |   B    |  CAPS    |-----------------------|  F11    |   N     |   M    |   ,    |   .    |   /     | SK RALT |
- *                          |ALT/OPT |  CTRL  | GUI      |  Nav   |---|  Sym     | ENTER   |  SPACE  |  <--   |
- */
-                        bindings = <
-&kp ESC   &kp Q &kp W &kp E &kp R    &kp T                                                 &kp Y     &kp U    &kp I     &kp O   &kp P     &kp GRAVE
-&kp TAB   &kp A &kp S &kp D &kp F    &kp G                                                 &kp H     &kp J    &kp K     &kp L   &kp COLON &kp DQT
-&sk LSHFT &kp Z &kp X &kp C &kp V    &kp B     &caps_word                        &kp F11   &kp N     &kp M    &kp COMMA &kp DOT &kp SLASH &sk RALT
-                            &kp LALT &kp LCTRL &kp LGUI  &mo NAV_L     &mo SYM_L &kp ENTER &kp SPACE &kp BSPC
-                        >;
-
-                        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-                };
-
-                workman_layer {
 /* WORKMAN
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |   |   Q |  D  |  R  |  W |   B    |-----------------------------|   J  |   F  |   U  |   P  |   ;    |   |
- * |   |   A |  S  |  H  |  T |   G    |-----------------------------|   Y  |   N  |   E  |   O  |   I    |   |
- * |   |   Z |  X  |  M  |  C |   V    |      |---------------|      |   K  |   L  |      |      |        |   |
- *                       |    |        |      |    |---|      |      |      |      |
+ * | ESC  |   Q |  D  |  R  |  W     |   B    |---------------------------------------------|   J     |   F    |   U    |   P   |   :     | `       |
+ * | TAB  |   A |  S  |  H  |  T     |   G    |---------------------------------------------|   Y     |   N    |   E    |   O   |   I     | "       |
+ * |SKSHFT|   Z |  X  |  M  |  C     |   V    | CAPS     |-----------------------| F11      |   K     |   L    |   ,    |   .   |   /     | SK RALT |
+ *                          |ALT/OPT |  CTRL  | GUI      |  Nav   |---|  Sym     | ENTER    |  SPACE  |  <--   |
  */
                         bindings = <
-&trans &kp Q &kp D &kp R &kp W  &kp  B                               &kp  J &kp F  &kp  U &kp  P &kp SEMI &trans
-&trans &kp A &kp S &kp H &kp T  &kp  G                               &kp  Y &kp N  &kp  E &kp  O &kp I    &trans
-&trans &kp Z &kp X &kp M &kp C  &kp  V &trans                 &trans &kp K  &kp L  &trans &trans &trans   &trans
-                         &trans &trans &trans &trans   &trans &trans &trans &trans
+&kp ESC   &kp Q &kp D &kp R &kp W    &kp  B                                                 &kp  J    &kp F    &kp  U    &kp  P  &kp COLON &kp GRAVE
+&kp TAB   &kp A &kp S &kp H &kp T    &kp  G                                                 &kp  Y    &kp N    &kp  E    &kp  O  &kp I     &kp DQT
+&sk LSHFT &kp Z &kp X &kp M &kp C    &kp  V    &caps_word                         &kp F11   &kp K     &kp L    &kp COMMA &kp DOT &kp SLASH &kp RALT
+                            &kp LALT &kp LCTRL &kp LGUI   &mo NAV_L     &mo SYM_L &kp ENTER &kp SPACE &kp BSPC
                         >;
 
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -67,13 +47,13 @@
                 nav_layer {
 /* NAV
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |   |   1/!   |  2/@    |  3/#   |  4/$     |  5/%      |-------------------------------------|  6/^    |  7/&        |  8/*      | 9/(     |   0/)    | \       |
+ * |   |   1     |  2      |  3     |  4       |  5        |-------------------------------------|  6      |  7          |  8        | 9       |   0      | \       |
  * |   | PG DOWN | PG UP   | Up     | Shift    | Home      |-------------------------------------|         |  Left       | Down      | Up      | Right    | Ctrl    |
  * |   | Shift   | Left    | Down   | Right    |  End      |  F5  |-------------------| MUTE     | Prev    |     Vol-    | Vol+      | Play    | Next     | SK RALT |
  *                                  |          |           |      |     |---| ADJ_L   |          |         |  DEL        |
  */
                       bindings = <
-&trans &kp EXCL  &kp AT    &kp HASH &kp DOLLAR &kp PERCENT                                       &kp CARET  &kp AMPS     &kp ASTRK    &kp LPAR &kp RPAR   &kp BSLH
+&trans &kp N1    &kp N2    &kp N3   &kp N4     &kp N5                                            &kp N6     &kp N7       &kp N8       &kp N9   &kp N0     &kp BSLH
 &trans &kp PG_DN &kp PG_UP &kp UP   &kp LSHFT  &kp HOME                                          &none      &kp LEFT     &kp  UP      &kp DOWN &kp RIGHT  &kp RCTRL
 &trans &kp LSHFT &kp LEFT  &kp DOWN &kp RIGHT  &kp END     &kp F5                     &kp C_MUTE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_PP &kp C_NEXT &trans
                                     &trans     &trans      &trans &trans    &mo ADJ_L &trans     &trans     &kp DEL
@@ -85,16 +65,16 @@
                 sym_layer {
 /* SYM
  * -------------------------------------------------------------------------------------------------------------------------------------
- * | Copy|   1/!  |   2/@ |  3/#   |  9/(   |  0/)   |------------------------------------|  6/^   |  7/&   | 8/* | 9/(  | 0/)  | \       |
- * |     |   4/$  |   -   |   +    |   [    |   ]    |------------------------------------|        |        |     | =    | :    | SK RALT |
- * | Ctrl|   5/%  |   /   |  8/*   |   {    |   }    |SkAltGr |-------------------| F12   |        |        |     | _    |      | Ctrl    |
- *                                 |        |        |        |  ADJ_L |---|      |       |        |        |
+ * | Copy|   !       |   @     |  #     |   (    |    )   |------------------------------------|   ^      |   &    |  *      | (       | )       | \       |
+ * |     |   $       |   -     |   +    |   [    |   ]    |------------------------------------|          |        |         | =       | :       | SK RALT |
+ * | Ctrl|   %       |   /     |  *     |   {    |   }    |SK RALT |-------------------| F12   |          |        |         | _       |         | Ctrl    |
+ *                                      |        |        |        |  ADJ_L |---|      |       |          |        |
  */
                         bindings = <
-&kp Copy &kp N1 &kp N2    &kp N3   &kp N9   &kp N0                                        &kp  N6   &kp N7 &kp N8 &kp N9 &kp N0 &kp BSLH
-&none    &kp N4 &kp MINUS &kp PLUS &kp LBKT &kp RBKT                                      &none &none  &none  &kp EQUAL  &kp COLON  &kp RCTRL
-&trans   &kp N5 &kp SLASH &kp N8   &kp LBRC &kp RBRC &sk RALT                     &kp F12 &none &none  &none  &kp UNDER  &none  &trans
-                                   &trans   &trans   &trans   &mo ADJ_L    &trans &trans  &trans    &trans
+&kp Copy &kp EXCL    &kp AT    &kp HASH &kp LPAR &kp RPAR                                       &kp CARET &kp AMPS &kp ASTRK &kp LPAR  &kp RPAR  &kp BSLH
+&none    &kp DOLLAR  &kp MINUS &kp PLUS &kp LBKT &kp RBKT                                       &none     &none    &none     &kp EQUAL &kp COLON &kp RCTRL
+&trans   &kp PERCENT &kp SLASH &kp N8   &kp LBRC &kp RBRC &sk RALT                      &kp F12 &none     &none    &none     &kp UNDER &none     &trans
+                                        &trans   &trans   &trans   &mo ADJ_L     &trans &trans  &trans    &trans
                         >;
 
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -103,15 +83,15 @@
                 adj_layer {
 /* ADJUST
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |       | BT 0      | BT 1        | BT 2       | BT 3        | BT 4         |-----------------------------------|  F1  |  F4  | F7    | F10  | EP_OFF          | EP_ON |
- * | RESET | QWERTY    | WORKMAN     | NAV        |             |              |-----------------------------------|  F2  |  F5  | F8    | F11  | OUT_USB         | RESET |
- * |       | LGUI      | LALT        | LCTRL      | LSHFT       | Prt Scr      |BT CLR     |---------------|       |  F3  |  F6  | F9    | F12  | OUT_BLE         | BOOTL |
- *                                                |             |              |           |     |---|     |       |      |      |
+ * |       | BT 0        | BT 1       | BT 2       | BT 3       | BT 4          |----------------------------------|  F1  |  F4  | F7   | F10  | EP_OFF          | EP_ON |
+ * | RESET | WORKMAN     | NAV        |            |            |               |----------------------------------|  F2  |  F5  | F8   | F11  | OUT_USB         | RESET |
+ * |       | LGUI        | LALT       | LCTRL      | LSHFT      | Prt Scr       |BT CLR    |---------------|       |  F3  |  F6  | F9   | F12  | OUT_BLE         | BOOTL |
+ *                                                 |            |               |          |     |---|     |       |      |      |
  */
                         bindings = <
-&none      &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                                       &kp F1 &kp F4 &kp F7 &kp F10 &ext_power EP_OFF &ext_power EP_ON
-&sys_reset &to QWERTY_L &to WORKMAN_L &to NAV_L    &none        &none                                              &kp F2 &kp F5 &kp F8 &kp F11 &out OUT_USB      &sys_reset
-&none      &kp LGUI     &kp LALT      &kp LCTRL    &kp LSHFT    &kp PRINTSCREEN &bt BT_CLR                  &none  &kp F3 &kp F6 &kp F9 &kp F12 &out OUT_BLE      &bootloader
+&none      &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                                       &kp F1 &kp F4 &kp F7 &kp F10 &ext_power EP_OFF &ext_power EP_ON
+&sys_reset &to WORKMAN_L &to NAV_L    &none        &none        &none                                              &kp F2 &kp F5 &kp F8 &kp F11 &out OUT_USB      &sys_reset
+&none      &kp LGUI      &kp LALT     &kp LCTRL    &kp LSHFT    &kp PRINTSCREEN &bt BT_CLR                  &none  &kp F3 &kp F6 &kp F9 &kp F12 &out OUT_BLE      &bootloader
                                                    &trans       &trans          &trans     &trans    &trans &trans &trans &trans
                         >;
 
