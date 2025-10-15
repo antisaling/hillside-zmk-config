@@ -35,8 +35,8 @@
  *                          |ALT/OPT |  CTRL  | GUI      |  Nav  |---|  Sym    | ENTER   |  SPACE  |  <--   |
  */
                         bindings = <
-&kp TAB   &kp Q &kp D &kp R &kp W    &kp B                                              &kp J     &kp F    &kp  U    &kp  P  &kp LS(SEMI) &kp LS(BSLH)
-&kp ESC   &kp A &kp S &kp H &kp T    &kp G                                              &kp Y     &kp N    &kp  E    &kp  O  &kp I     &kp LS(SQT)
+&kp TAB   &kp Q &kp D &kp R &kp W    &kp B                                              &kp J     &kp F    &kp  U    &kp  P  &mt SEMI LS(SEMI) &mt BSLH LS(BSLH)
+&kp ESC   &kp A &kp S &kp H &kp T    &kp G                                              &kp Y     &kp N    &kp  E    &kp  O  &kp I     &mt SQT LS(SQT)
 &sk LSHFT &kp Z &kp X &kp M &kp C    &kp V     &caps_word                      &kp F11   &kp K     &kp L    &kp COMMA &kp DOT &kp SLASH &sk LSHFT
                             &kp LALT &kp LCTRL &kp LGUI &mo NAV_L   &mo SYM_L &kp ENTER &kp SPACE &kp BSPC
                         >;
