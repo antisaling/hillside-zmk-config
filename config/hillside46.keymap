@@ -29,9 +29,9 @@
                 default_layer {
                         bindings = <
 &kp TAB   &kp Q &kp D &kp R &kp W     &kp B                                                   &kp J     &kp F    &kp  U       &kp  P     &mt SEMI LS(SEMI) &mt BSLH LS(BSLH)
-&kp ESC   &kp A &kp S &kp H &kp T     &kp G                                                   &kp Y     &kp N    &kp  E       &kp  O     &kp I             &mt SQT LS(SQT)
-&sk LSHFT &kp Z &kp X &kp M &kp C     &kp V          &caps_word                     &kp F11   &kp K     &kp L    &mt LT COMMA &mt GT DOT &kp SLASH         &sk LSHFT
-                            &kp LCTRL &mt BSPC LSHFT &kp LGUI &mo NAV_L   &mo SYM_L &kp ENTER &kp SPACE &mt LALT BSPC
+&gresc   &kp A &kp S &kp H &kp T     &kp G                                                   &kp Y     &kp N    &kp  E       &mt MINUS O     &mt PLUS I             &mt SQT LS(SQT)
+&sk LSHFT &mt PERCENT Z &mt SLASH X &mt ASTRK M &kp C     &kp V          &mt GRAVE LS(GRAVE)                    &kp F11   &kp K     &kp L    &mt LT COMMA &mt GT DOT &kp SLASH         &caps_word
+                            &kp LCTRL &kp BSPC &kp LGUI &mo NAV_L   &mo SYM_L &mt LSHFT ENTER &kp SPACE &mt LALT BSPC
                         >;
 
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -51,7 +51,7 @@
                 sym_layer {
                         bindings = <
 &kp Copy &kp EXCL    &kp AT    &kp HASH  &kp LPAR &kp RPAR                                       &kp CARET &kp AMPS &kp ASTRK &kp LPAR  &kp RPAR  &kp BSLH
-&none    &kp DOLLAR  &kp MINUS &kp PLUS  &kp LBKT &kp RBKT                                       &none     &kp EQUAL &kp PLUS  &kp MINUS &kp COLON &kp RCTRL
+&none    &kp DOLLAR  &kp MINUS &kp PLUS  &kp LBKT &kp RBKT                                       &kp GRAVE     &kp EQUAL &kp PLUS  &kp MINUS &kp COLON &kp RCTRL
 &trans   &kp PERCENT &kp SLASH &kp ASTRK &kp LBRC &kp RBRC &kp CAPS                      &kp F12 &none     &kp UNDER &kp LT     &kp GT &kp SEMI     &trans
                                          &trans   &trans   &trans   &mo ADJ_L     &trans &trans  &trans    &trans
                         >;
