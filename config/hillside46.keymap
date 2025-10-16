@@ -11,9 +11,10 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define WORKMAN_L 0
-#define NAV_L    1
-#define SYM_L    2
-#define ADJ_L    3
+#define QWERTY_L 1
+#define NAV_L    2
+#define SYM_L    3
+#define ADJ_L    4
 
 #define Undo   LC(Z)
 #define Cut    LC(X)
@@ -30,8 +31,19 @@
                         bindings = <
 &kp TAB   &kp Q &kp D &kp R &kp W     &kp B                                                   &kp J     &kp F    &kp  U       &kp  P     &mt SEMI LS(SEMI) &mt BSLH LS(BSLH)
 &kp ESC   &kp A &kp S &kp H &kp T     &kp G                                                   &kp Y     &kp N    &kp  E       &kp O     &kp I             &mt SQT LS(SQT)
-&sk LSHFT &kp Z &kp X &kp M &kp C     &kp V          &mt GRAVE LS(GRAVE)                    &kp F11   &kp K     &kp L    &mt LT COMMA &mt GT DOT &kp SLASH         &sk LSHFT
-                            &kp LCTRL &kp SPACE &kp LGUI &mo NAV_L   &mo SYM_L &caps_word &mt BSPC ENTER &mt LALT BSPC
+&kp LSHFT &kp Z &kp X &kp M &kp C     &kp V          &mt GRAVE LS(GRAVE)                    &kp F11   &kp K     &kp L    &kp COMMA &kp DOT &kp SLASH         &kp LSHFT
+                            &kp LCTRL &kp BSPC &kp LGUI &mo SYM_L   &mo NAV_L &mt LALT ENTER &kp SPACE &caps_word
+                        >;
+
+                        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+                };
+
+                qwerty_layer {
+                        bindings = <
+&kp TAB   &kp Q &kp W &kp E &kp R     &kp T                                                   &kp Y     &kp U    &kp  O       &kp I     &kp P    &mt SEMI LS(SEMI)
+&kp ESC   &kp A &kp S &kp D &kp F     &kp G                                                   &kp H     &kp J    &kp  K       &kp L     &mt SQT LS(SQT) &mt BSLH LS(BSLH)
+&kp LSHFT &kp Z &kp X &kp C &kp V     &kp B          &mt GRAVE LS(GRAVE)                    &kp F11   &kp N     &kp M    &kp COMMA &kp DOT &kp SLASH         &kp LSHFT
+                            &kp LCTRL &kp BSPC &kp LGUI &mo SYM_L   &mo NAV_L &mt LALT ENTER &kp SPACE &caps_word
                         >;
 
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -41,8 +53,8 @@
                       bindings = <
 &trans   &kp N1    &kp N2    &kp N3   &kp N4     &kp N5                                         &kp N6     &kp N7       &kp N8       &kp N9   &kp N0     &kp GRAVE
 &trans   &kp PG_DN &kp PG_UP &kp UP   &kp LSHFT  &kp HOME                                       &none      &kp LEFT     &kp DOWN     &kp UP   &kp RIGHT  &kp RCTRL
-&sk RALT &kp LSHFT &kp LEFT  &kp DOWN &kp RIGHT  &kp END  &kp F5                     &kp C_MUTE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_PP &kp C_NEXT &trans
-                                      &trans     &trans   &trans &trans    &mo ADJ_L &trans     &trans     &kp DEL
+&kp RALT &kp LSHFT &kp LEFT  &kp DOWN &kp RIGHT  &kp END  &kp F5                     &kp C_MUTE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_PP &kp C_NEXT &trans
+                                      &trans     &trans   &trans &mo ADJ_L    &trans &trans     &trans     &kp DEL
                         >;
 
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -53,7 +65,7 @@
 &kp Copy &kp EXCL    &kp AT    &kp HASH  &kp LPAR &kp RPAR                                       &kp CARET &kp AMPS &kp ASTRK &kp LPAR  &kp RPAR  &kp BSLH
 &none    &kp DOLLAR  &kp MINUS &kp PLUS  &kp LBKT &kp RBKT                                       &kp GRAVE     &kp EQUAL &kp PLUS  &kp MINUS &kp COLON &kp RCTRL
 &trans   &kp PERCENT &kp SLASH &kp ASTRK &kp LBRC &kp RBRC &kp CAPS                      &kp F12 &none     &kp UNDER &kp LT     &kp GT &kp SEMI     &trans
-                                         &trans   &trans   &trans   &mo ADJ_L     &trans &trans  &trans    &trans
+                                         &trans   &trans   &trans   &trans     &mo ADJ_L &trans  &trans    &trans
                         >;
 
                         sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -62,7 +74,7 @@
                 adj_layer {
                         bindings = <
 &none      &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                                       &kp F1 &kp F4 &kp F7 &kp F10 &ext_power EP_OFF &ext_power EP_ON
-&sys_reset &to WORKMAN_L &to NAV_L    &none        &none        &none                                              &kp F2 &kp F5 &kp F8 &kp F11 &out OUT_USB      &sys_reset
+&sys_reset &to WORKMAN_L &to QWERTY_L &none        &none        &none                                              &kp F2 &kp F5 &kp F8 &kp F11 &out OUT_USB      &sys_reset
 &none      &kp LGUI      &kp LALT     &kp LCTRL    &kp LSHFT    &kp PRINTSCREEN &bt BT_CLR                  &none  &kp F3 &kp F6 &kp F9 &kp F12 &out OUT_BLE      &bootloader
                                                    &trans       &trans          &trans     &trans    &trans &trans &trans &trans
                         >;
