@@ -14,7 +14,9 @@
 #define QWERTY_L 1
 #define NAV_L    2
 #define SYM_L    3
-#define ADJ_L    4
+#define QNAV_L    4
+#define QSYM_L    5
+#define ADJ_L    6
 
 #define Undo   LC(Z)
 #define Cut    LC(X)
@@ -40,10 +42,10 @@
 
                 qwerty_layer {
                         bindings = <
-&kp TAB   &kp Q &kp W &kp E &kp R     &kp T                                                   &kp Y     &kp U    &kp  O       &kp I     &kp P    &mt SEMI LS(SEMI)
-&kp ESC   &kp A &kp S &kp D &kp F     &kp G                                                   &kp H     &kp J    &kp  K       &kp L     &mt SQT LS(SQT) &mt BSLH LS(BSLH)
+&kp TAB   &kp Q &kp W &kp E &kp R     &kp T                                                   &kp Y     &kp U    &kp  I       &kp O     &kp P    &mt SQT LS(SQT)
+&kp ESC   &kp A &kp S &kp D &kp F     &kp G                                                   &kp H     &kp J    &kp  K       &kp L     &kp SEMI &mt BSLH LS(BSLH)
 &kp LSHFT &kp Z &kp X &kp C &kp V     &kp B          &mt GRAVE LS(GRAVE)                    &kp F11   &kp N     &kp M    &kp COMMA &kp DOT &kp SLASH         &kp LSHFT
-                            &kp LCTRL &kp BSPC &kp LGUI &mo SYM_L   &mo NAV_L &mt LALT ENTER &kp SPACE &caps_word
+                            &kp LCTRL &kp BSPC &kp LGUI &mo QSYM_L   &mo QNAV_L &mt LALT ENTER &kp SPACE &caps_word
                         >;
 
                         sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -53,7 +55,7 @@
                       bindings = <
 &trans   &kp N1    &kp N2    &kp N3   &kp N4     &kp N5                                         &kp N6     &kp N7       &kp N8       &kp N9   &kp N0     &kp GRAVE
 &trans   &kp PG_DN &kp PG_UP &kp UP   &kp LSHFT  &kp HOME                                       &none      &kp LEFT     &kp DOWN     &kp UP   &kp RIGHT  &kp RCTRL
-&kp RALT &kp LSHFT &kp LEFT  &kp DOWN &kp RIGHT  &kp END  &kp F5                     &kp C_MUTE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_PP &kp C_NEXT &trans
+&kp RALT &kp LSHFT &kp LEFT  &kp DOWN &kp RIGHT  &kp END  &kp C_REC                     &kp C_MUTE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_PP &kp C_NEXT &trans
                                       &sk LC(LALT)     &trans   &trans &mo ADJ_L    &trans &trans     &trans     &kp DEL
                         >;
 
@@ -63,6 +65,28 @@
                 sym_layer {
                         bindings = <
 &kp Copy &kp EXCL    &kp AT    &kp HASH  &kp LPAR &kp RPAR                                       &kp CARET &kp AMPS &kp ASTRK &kp LPAR  &kp RPAR  &kp BSLH
+&none    &kp DOLLAR  &kp MINUS &kp PLUS  &kp LBKT &kp RBKT                                       &kp GRAVE     &kp EQUAL &kp PLUS  &kp MINUS &kp COLON &kp RCTRL
+&trans   &kp PERCENT &kp SLASH &kp ASTRK &kp LBRC &kp RBRC &kp CAPS                      &kp F12 &none     &kp UNDER &kp LT     &kp GT &kp SEMI     &trans
+                                         &trans   &trans   &trans   &trans     &mo ADJ_L &trans  &trans    &trans
+                        >;
+
+                        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+                };
+
+                qnav_layer {
+                      bindings = <
+&trans &kp EXCL    &kp AT    &kp HASH  &kp LPAR &kp RPAR                                       &kp CARET &kp AMPS &kp ASTRK &kp LPAR  &kp RPAR  &kp GRAVE
+&trans   &kp PG_DN &kp PG_UP &kp UP   &kp LSHFT  &kp HOME                                       &none      &kp LEFT     &kp DOWN     &kp UP   &kp RIGHT  &kp RCTRL
+&kp RALT &kp LSHFT &kp LEFT  &kp DOWN &kp RIGHT  &kp END  &kp C_REC                     &kp C_MUTE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_PP &kp C_NEXT &trans
+                                      &sk LC(LALT)     &trans   &trans &mo ADJ_L    &trans &trans     &trans     &kp DEL
+                        >;
+
+                        sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+                };
+
+                qsym_layer {
+                        bindings = <
+&kp Copy   &kp N1    &kp N2    &kp N3   &kp N4     &kp N5                                         &kp N6     &kp N7       &kp N8       &kp N9   &kp N0     &kp BSLH
 &none    &kp DOLLAR  &kp MINUS &kp PLUS  &kp LBKT &kp RBKT                                       &kp GRAVE     &kp EQUAL &kp PLUS  &kp MINUS &kp COLON &kp RCTRL
 &trans   &kp PERCENT &kp SLASH &kp ASTRK &kp LBRC &kp RBRC &kp CAPS                      &kp F12 &none     &kp UNDER &kp LT     &kp GT &kp SEMI     &trans
                                          &trans   &trans   &trans   &trans     &mo ADJ_L &trans  &trans    &trans
