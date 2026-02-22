@@ -14,7 +14,7 @@
 ---
 include:
   # Hillside 46
-  - board: nice_nano
+  - board: nice_nano//zmk
     shield: hillside46_left
-  - board: nice_nano
+  - board: nice_nano//zmk
     shield: hillside46_right
