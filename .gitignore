@@ -1,3 +1,4 @@
+.ccache/
 build/
 .west/
 modules/
